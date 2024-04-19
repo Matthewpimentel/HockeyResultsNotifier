@@ -10,9 +10,8 @@ namespace HockeyResultsNotifier
 {
     public class Email
     { 
-        public void SendEmail(List<GameResult> results)
-        {
-
+        public void SendEmail(List<GameResult> results, string email)
+        { 
             string emailContent = "";
             foreach (var result in results)
             {
@@ -21,7 +20,7 @@ namespace HockeyResultsNotifier
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Matthew Pimentel", "matthewpimentelgames@gmail.com"));
-            message.To.Add(new MailboxAddress("", "Pimentelmatthew@outlook.com"));
+            message.To.Add(new MailboxAddress("", email));
             message.Subject = "Yesterday's Game Results";
             message.Body = new TextPart("plain")
             {

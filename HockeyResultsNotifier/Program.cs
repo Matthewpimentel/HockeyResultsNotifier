@@ -6,12 +6,16 @@ List<GameResult> results = new List<GameResult>();
 
 HtmlWeb web = new HtmlWeb();
 
+List<int> scoresToKeep = new List<int>();
+
 HtmlDocument document = web.Load("https://www.hockey-reference.com/boxscores/");
+
+GetUserEmail();
+
 
 var teamNames = document.DocumentNode.SelectNodes("//div[@id=\"wrap\"]//div[@class=\"game_summaries\"]//div/table/tbody/tr/td[not(contains(@class, \"gamelink\"))]/a");
 var scores = document.DocumentNode.SelectNodes("//div[@id=\"wrap\"]//div[@class=\"game_summaries\"]//div/table/tbody/tr/td[@class=\"right\"]");
 
-List<int> scoresToKeep = new List<int>();
 
 for (int x = 0; x < scores.Count; x++)
 {
@@ -36,9 +40,34 @@ for (int i = 0; i < teamNames.Count; i++)
     }
 }
 
+void GetUserEmail()
+{
+
+    string filePath = "email.txt";
+    if (!File.Exists(filePath)) {
+        Console.WriteLine("Please enter your email to receieve updates to!\n");
+        string email = Console.ReadLine();
+
+        try
+        {
+            File.WriteAllText(filePath, email);
+            Console.WriteLine($"Email '{email}' has been saved to '{filePath}'.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred while saving the email: {ex.Message}");
+        }
+    }
+}
 
 
-Email email = new Email();
+if (File.Exists("email.txt"))
+{
+    Email email = new Email();
+    string emailText = File.ReadAllText("email.txt");
+    Console.WriteLine(emailText);
+    email.SendEmail(results, emailText);
+}
 
-email.SendEmail(results);
+
 
