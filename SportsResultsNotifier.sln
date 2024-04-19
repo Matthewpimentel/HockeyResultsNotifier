@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HockeyResultsNotifier", "HockeyResultsNotifier\HockeyResultsNotifier.csproj", "{9C473958-06D0-4031-AC73-BFF27618DD30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsResultsNotifier", "HockeyResultsNotifier\SportsResultsNotifier.csproj", "{9C473958-06D0-4031-AC73-BFF27618DD30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
