@@ -36,9 +36,9 @@ for (int i = 0; i < teamNames.Count; i++)
     }
 }
 
-foreach(GameResult gameResult in results)
-{
-   Console.WriteLine(gameResult.ToString());
-}
 
+
+Email email = new Email();
+
+email.SendEmail(results);
 

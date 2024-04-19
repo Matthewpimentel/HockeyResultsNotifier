@@ -24,7 +24,7 @@ namespace HockeyResultsNotifier
 
         public override string ToString()
         {
-            return $"Team1: {teamOne}\nTeam2: {teamTwo}\nscore: {teamOneScore} - {teamTwoScore}";
+            return $"Teams: {teamOne} - {teamTwo}\nScore: {teamOneScore} - {teamTwoScore}\n\n";
         }
     }
 }
